@@ -1,4 +1,4 @@
-import authSchema from "../model/authSchema.js";
+import authSchema from "../models/authSchema.js";
 import { badRequest } from "../error/index.js";
 import { StatusCodes } from "http-status-codes";
 import { comparePassword, jwtGenrator } from "../utils/index.js";

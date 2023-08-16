@@ -1,4 +1,5 @@
 import jwt from "jsonwebtoken";
+import {} from "dotenv/config.js";
 
 const jwtGenrator = ({ payload }) => {
   const token = jwt.sign({ payload }, process.env.JWT_SECRET, {

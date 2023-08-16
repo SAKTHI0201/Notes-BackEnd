@@ -3,8 +3,9 @@ import dbConnection from "./db/dbConnection.js";
 import {} from "dotenv/config.js";
 import errorHandler from "./Middleware/error-handler.js";
 import cors from "cors";
-import authrouter from "./router/authrouter.js";
+import authRouter from "./router/authRouter.js";
 import cookieParser from "cookie-parser";
+import notesRouter from "./router/notesRouter.js";
 import authVerify from "./Middleware/auth-verify.js";
 import fileUpload from "express-fileupload";
 import { v2 as cloudinary } from "cloudinary";
@@ -14,7 +15,8 @@ app.use(cors());
 app.use(Express.json());
 app.use(cookieParser());
 app.use(fileUpload({ useTempFiles: true }));
-app.use("/api/v1/auth", authrouter);
+app.use("/api/v1/auth", authRouter);
+app.use("/api/v1/notes", authVerify, notesRouter);
 app.use(errorHandler);
 
 cloudinary.config({
