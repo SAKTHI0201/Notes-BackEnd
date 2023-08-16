@@ -2,15 +2,15 @@ import mongoose from "mongoose";
 
 const Schema = mongoose.Schema(
   {
-    User: {
+    user: {
       type: mongoose.Schema.Types.ObjectId,
       ref: "User",
     },
-    Title: {
+    title: {
       type: String,
       required: true,
     },
-    Description: {
+    description: {
       type: String,
       required: true,
     },

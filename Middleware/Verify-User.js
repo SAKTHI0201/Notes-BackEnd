@@ -1,3 +1,5 @@
+import { badRequest } from "../error/index.js";
+
 const verifyUser = (req, res, next) => {
   try {
     if (req.user.payload === req.params.id) {

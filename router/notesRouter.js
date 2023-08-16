@@ -1,4 +1,5 @@
 import express from "express";
+import verifyUser from "../Middleware/Verify-User.js";
 import {
   getAllNotes,
   createNote,
@@ -7,11 +8,10 @@ import {
 } from "../Controllers/notesController.js";
 const router = express.Router();
 
+router.route("/:id").get(verifyUser, getAllNotes).post(verifyUser, createNote);
 router
-  .post("/:id")
-  .get(getAllNotes)
-  .post(createNote)
-  .delete(deleteNote)
-  .patch(updateNote);
+  .route("/:id/:noteId")
+  .delete(verifyUser, deleteNote)
+  .patch(verifyUser, updateNote);
 
 export default router;
